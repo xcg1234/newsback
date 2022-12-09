@@ -1,6 +1,7 @@
 import express from 'express';
 const app = express();
 import cors from 'cors';
+app.use(cors());
 app.use(express.json());
 const port = process.env.PORT || 5000;
 import mongoose from 'mongoose';
@@ -16,7 +17,7 @@ mongoose
 	.catch((err) => {
 		console.log('Error:', err.message);
 	});
-app.use(cors());
+
 app.use('/api/newsitems', newsRoute);
 app.use('/api/users', userRoute);
 app.get('/', (req, res) => {
